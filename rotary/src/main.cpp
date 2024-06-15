@@ -6,9 +6,9 @@
 #include <oled.h>
 
 #define LEDCW  5
-#define ROTA   35
-#define ROTB   34
-#define ROTBUT 19
+#define ROTA   33
+#define ROTB   32
+#define ROTBUT 23
 SimpleRotary rotary(ROTA, ROTB, ROTBUT);
 
 #define LEDPIN 22
@@ -57,19 +57,16 @@ void rotaryTest()
 		Serial.println("CW");
     digitalWrite(LEDCW, HIGH);
     bleKeyboard.write(KEY_MEDIA_VOLUME_UP);
-		// Do something cool
 	} else if ( r == 2 ) {
 		Serial.println("CCW");
     digitalWrite(LEDCW, LOW);
     bleKeyboard.write(KEY_MEDIA_VOLUME_DOWN);
-		// Do something cool
 	}
 
   byte p = rotary.push();
 	
 	if ( p == 1 ){
 		Serial.println("Pushed");
-    bleKeyboard.write(BRIGHTNESS_UP);
     bleKeyboard.write(KEY_MEDIA_MUTE);
 		if ( ledTog ){
       ledTog = 0;
@@ -103,18 +100,21 @@ void initPins()
 
 void setup()
 {
+  Serial.begin(115200);
+  Serial.println("Script running :3");
+
   initPins();
 
   display.begin();
   display.display();
   display.setTTYMode(true);
-  display.printf("test");
+  display.printf("gamo to spiti :(");
   bleKeyboard.setName(DEVICE_NAME);
   bleKeyboard.begin();
   bleKeyboard.setBatteryLevel(69);
 
   ledDelay.start(LEDDELAY, AsyncDelay::MILLIS);
-  Serial.begin(115200);
+  
   Serial.println("Script running :3");
 }
 
