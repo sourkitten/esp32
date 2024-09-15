@@ -7,16 +7,16 @@ and printing that to the ESP32's Serial UART (onboard).
 It also writes to the ESP32's UART Serial input (onboard),\
 which writes that data to the Rx pin of the UART of the target device.
 
-Basically:
-Read:  [PC]<-[ESP32 onboard USB/UART]<-[external UART]
+Basically:\
+Read:  [PC]<-[ESP32 onboard USB/UART]<-[external UART]\
 Write: [PC]->[ESP32 onboard USB/UART]->[external UART]
 
 
 ### Why?
 ---
 Why not? I started this project, as I wanted a UART adapter\
-but didn't have the time to wait for one to be delivered to me.
-I have many ESP32 based boards and procrastinate my studies,\
+but didn't have the time to wait for one to be delivered to me.\
+I have many ESP32 based boards and procrastinate studying,\
 thus this project was born.
 
 
